@@ -1,42 +1,405 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* セットアップ画面 */
+.setup-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.setup-container h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.role-selection {
+  text-align: left;
+}
+
+.role-selection label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.role-buttons button {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.role-buttons button:hover {
+  border-color: #3498db;
+}
+
+.role-buttons button.selected {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.start-button {
+  padding: 1rem 2rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.start-button:hover:not(:disabled) {
+  background: #229954;
+}
+
+.start-button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* ゲーム画面 */
+.game-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.game-header {
+  margin-bottom: 2rem;
+}
+
+.game-header h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.connection-status {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.status-connected {
+  color: #27ae60;
+}
+
+.status-disconnected {
+  color: #e74c3c;
+}
+
+.status-error {
+  color: #f39c12;
+}
+
+.problem-area {
+  background: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.answer-display {
+  background: #e8f5e8;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #27ae60;
+}
+
+.answer-display h3 {
+  color: #27ae60;
+  margin-bottom: 0.5rem;
+}
+
+.answer-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.question-display {
+  background: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #3498db;
+}
+
+.question-display h3 {
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.show-answer-button {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.show-answer-button:hover {
+  background: #e67e22;
+}
+
+.revealed-answer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff3cd;
+  border: 2px solid #f39c12;
+  border-radius: 8px;
+}
+
+.revealed-answer h4 {
+  color: #f39c12;
+  margin-bottom: 0.5rem;
+}
+
+/* チャットエリア */
+.chat-area {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-area h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.question-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-input input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.question-input input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.question-input button {
+  padding: 0.75rem 1.5rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.question-input button:hover {
+  background: #2980b9;
+}
+
+/* 質問リスト */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.question-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.question-content {
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.self-question {
+  color: #3498db;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.other-question {
+  color: #e67e22;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.timestamp {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.judgment-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.yes-button, .no-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.yes-button {
+  background: #27ae60;
+  color: white;
+}
+
+.yes-button:hover {
+  background: #229954;
+}
+
+.no-button {
+  background: #e74c3c;
+  color: white;
+}
+
+.no-button:hover {
+  background: #c0392b;
+}
+
+/* 統計表示 */
+.judgment-stats {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.stats-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.majority {
+  color: #f39c12;
+}
+
+.chart-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+}
+
+.percentage-display {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.yes-percent {
+  color: #27ae60;
+}
+
+.no-percent {
+  color: #e74c3c;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .setup-container {
+    padding: 1rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .role-buttons {
+    flex-direction: column;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .question-input {
+    flex-direction: column;
+  }
+  
+  .stats-summary {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .percentage-display {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
